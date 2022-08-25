@@ -1,0 +1,13 @@
+package com.locationLess;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class LocationlessApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(LocationlessApplication.class, args);
+	}
+
+}
