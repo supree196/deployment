@@ -4,4 +4,4 @@ From tomcat:8-jre8
 MAINTAINER "valaxytech@gmail.com" 
 
 # copy war file on to container 
-COPY ./webapp.war /usr/local/tomcat/webapps
+COPY ./locationless.war /usr/local/tomcat/webapps
