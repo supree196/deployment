@@ -35,6 +35,7 @@ spec:
       containers:
       - name: product
         image: param036/bookmyslot:webapp
+        name: product
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 4200
