@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-webapp
+  labels:
+    app: product-webapp
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-webapp
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: product-webapp
+        version: v1
+    spec:
+      containers:
+      - name: product
+        image: param036/bookmyslot:webapp
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 4200
