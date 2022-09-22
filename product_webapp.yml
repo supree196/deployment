@@ -6,6 +6,7 @@ metadata:
     app: product-webapp
     service: product-webapp
 spec:
+  type: NodePort
   ports:
   - port: 4200
     name: http
