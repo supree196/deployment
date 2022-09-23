@@ -1,18 +1,19 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: product-webapp
   labels:
-    app: project
-    service: product-webapp
+    app: product-webapp
+  name: product-webapp
 spec:
-  clusterIP: none
-  
   ports:
   - port: 4200
-    name: http
+    protocol: TCP
+    targetPort: 4200
   selector:
-    app: project
+    app: product-webapp
+  type: NodePort
+...
 
 ---
 apiVersion: apps/v1
@@ -20,24 +21,20 @@ kind: Deployment
 metadata:
   name: product-webapp
   labels:
-    app: project
-    version: v1
+    app: product-webapp
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: project
-      version: v1
+      app: product-webapp
   template:
     metadata:
       labels:
-        app: project
-        version: v1
+        app: product-webapp
     spec:
       containers:
-       - name: product
-        image: param036/product-webapp:latest
-        name: product
+      - name: product-webapp
+        image: param036/product-webapp:product-webapp
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 4200
