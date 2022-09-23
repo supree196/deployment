@@ -3,15 +3,16 @@ kind: Service
 metadata:
   name: product-webapp
   labels:
-    app: product-webapp
+    app: project
     service: product-webapp
 spec:
-  type: NodePort
+  clusterIP: none
+  
   ports:
   - port: 4200
     name: http
   selector:
-    app: product-webapp
+    app: project
 
 ---
 apiVersion: apps/v1
@@ -19,23 +20,23 @@ kind: Deployment
 metadata:
   name: product-webapp
   labels:
-    app: product-webapp
+    app: project
     version: v1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: product-webapp
+      app: project
       version: v1
   template:
     metadata:
       labels:
-        app: product-webapp
+        app: project
         version: v1
     spec:
       containers:
-      - name: product
-        image: param036/bookmyslot:webapp
+       - name: product
+        image: param036/product-webapp:latest
         name: product
         imagePullPolicy: IfNotPresent
         ports:
