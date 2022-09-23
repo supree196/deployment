@@ -33,13 +33,14 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: mysql
-        image: param036/bookmyslot:mysql
+        image: ramesh1796/mysql:mysql
+        imagePullPolicy: IfNotPresent
         
         ports:
         - containerPort: 3306
         env:
-          - name: username
+          - name: MYSQL_USERNAME
             value: 'root'
-          - name: password
+          - name: MYSQL_ROOT_PASSWORD
             value: 'Password'
 ...
