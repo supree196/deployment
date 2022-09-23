@@ -38,4 +38,7 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8888
+        env:
+        - name: servername_eureka
+          value: "eureka-server"
 ...
