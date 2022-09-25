@@ -37,7 +37,7 @@ spec:
         image: supree196/telecare-appointment-service:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8097
+        - containerPort: 8060
         env:
         - name: servername_eureka
           value: "eureka-server"
