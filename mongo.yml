@@ -4,30 +4,30 @@ kind: Service
 metadata:
   name: mongo-container
   labels:
-   app: mongo
+   app: mongodb
 spec:
   ports:
   - port: 27017
   clusterIP: None
   selector:
-    app: mongo
+    app: mongodb
 ...
 ---
 
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: mongo
+  name: mongodb
 spec:
   selector:
     matchLabels:
-      app: mongo
+      app: mongodb
   serviceName: "mongodb"
   replicas: 1
   template:
     metadata:
       labels:
-        app: mongo
+        app: mongodb
     spec:
      # terminationGracePeriodSeconds: 10
       containers:
