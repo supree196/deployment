@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: param036/wednight_api-gateway:wednight_api-gateway
+          image: supree196/telecare-api-gateway:latest
           ports:
             - containerPort: 8080
           env:
