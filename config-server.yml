@@ -3,41 +3,41 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: config-server
-  name: config-server
+    app: chat-service
+  name: chat-service
 spec:
   ports:
-  - port: 8888
+  - port: 8070
     protocol: TCP
-    targetPort: 8888
+    targetPort: 8070
   selector:
-    app: config-server
-  type: NodePort
+    app: chat-service
+  type: ClusterIP
 ...
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: config-server
+  name: chat-service
   labels:
-    app: config-server
+    app: chat-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: config-server
+      app: chat-service
   template:
     metadata:
       labels:
-        app: config-server
+        app: chat-service
     spec:
       containers:
-      - name: config-server
-        image: param036/wednight_config-server:wednight_config-server
+      - name:chat-service
+        image: supree196/telecare-chat-service:latest
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8888
+        - containerPort: 8070
         env:
         - name: servername_eureka
           value: "eureka-server"
