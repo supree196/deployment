@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: product-webapp
-        image: param036/product-webapp:product-webapp
+        image: supree196/product-webapp:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 4200
